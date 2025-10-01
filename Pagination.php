@@ -1,38 +1,34 @@
 <?php
 
 namespace App\Configs;
-
-
+use Symfony\Contracts\Translation\TranslatorInterface;
 class Pagination {
 
-    private $totalPages;
-    
-    private $pageUrl;
-    
-    private $page;
 
-    private $routingUrl; 
+    private $translator;
+
+    public function __construct(TranslatorInterface $translator){
+        $this->translator = $translator;
+    }
 
    
    public function pagination(int $totalPages,int $page,$routingParams=false,$pathName=null,$params,$pageUrl='search?'){
-       $this->pageUrl = $pageUrl;
        $pagePrefix = ($params == '' ? 'page=' : '&page='); 
-       $pagination= '';
+       $pagination = '';
        if($page>=2) {
-            $pagination.= "<li> <a href='$this->pageUrl$params$pagePrefix".($page-1)."'>  Prev </a></li>";  
+            $pagination.= "<li> <a href='$pageUrl$params$pagePrefix".($page-1)."'>  ".$this->translator->trans('prev')." </a></li>";  
         }  
         $minPage = $page - 1 == 0 ? 1 : $page -1;
-        $minPage = $page  >= 3 ? $page - 1 : $minPage;
         for($i=$minPage; $i<=$totalPages; $i++){
                 if($page==$i){
-                    $pagination .= '<li class="active"><a href="'.$this->pageUrl.$params.$pagePrefix.'"></a>'.$page.'</li>';
+                    $pagination .= '<li class="active"><a href="'.$pageUrl.$params.$pagePrefix.'"></a>'.$page.'</li>';
                 }
                 else if($i<$page+2){
-                    $pagination .= "<li><a href='$this->pageUrl$params$pagePrefix$i'>$i</a></li>";
+                    $pagination .= "<li><a href='$pageUrl$params$pagePrefix$i'>$i</a></li>";
                 }
         }
         if($page<$totalPages){   
-            $pagination.= "<li><a href='$this->pageUrl$params$pagePrefix".($page+1)."'> Next </a></li>";   
+            $pagination.= "<li><a href='$pageUrl$params$pagePrefix".($page+1)."'> ".$this->translator->trans('next')." </a></li>";   
         }  
         if($routingParams){
             if($pathName){
@@ -49,5 +45,5 @@ class Pagination {
        return  $pagination;
     }
 
-    
+
 }
