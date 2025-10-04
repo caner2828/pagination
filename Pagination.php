@@ -18,12 +18,12 @@ class Pagination {
        if($page>=2) {
             $pagination.= "<li> <a href='$pageUrl$params$pagePrefix".($page-1)."'>  ".$this->translator->trans('prev')." </a></li>";  
         }  
-        $minPage = $page - 1 == 0 ? 1 : ( $page >= 4 ? $page -2 : $page -1);
+        $minPage = $page - 1 == 0 ? 1 : ( $page >= 3 ? $page -2 : $page -1);
         for($i=$minPage; $i<=$totalPages; $i++){
                 if($page==$i){
                     $pagination .= '<li class="active"><a href="'.$pageUrl.$params.$pagePrefix.'"></a>'.$page.'</li>';
                 }
-                else if($i<$page+2){
+                else if( $page >=3 == 0 ? ($i<$page+3) : ($i<$page+2)){
                     $pagination .= "<li><a href='$pageUrl$params$pagePrefix$i'>$i</a></li>";
                 }
         }
