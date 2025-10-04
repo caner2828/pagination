@@ -23,7 +23,7 @@ class Pagination {
                 if($page==$i){
                     $pagination .= '<li class="active"><a href="'.$pageUrl.$params.$pagePrefix.'"></a>'.$page.'</li>';
                 }
-                else if( $page >=3 == 0 ? ($i<$page+3) : ($i<$page+2)){
+                else if( $page >= 3 ? ($i<$page+3) : ($i<$page+2)){
                     $pagination .= "<li><a href='$pageUrl$params$pagePrefix$i'>$i</a></li>";
                 }
         }
