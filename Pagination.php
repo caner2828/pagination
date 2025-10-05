@@ -13,22 +13,22 @@ class Pagination {
 
    
    public function pagination(int $totalPages,int $page,$routingParams=false,$pathName=null,$params,$pageUrl='search?'){
-       $pagePrefix = ($params == '' ? 'page=' : '&page='); 
+       $pageQuery = ($params == '' ? 'page=' : '&page='); 
        $pagination = '';
        if($page>=2) {
-            $pagination.= "<li> <a href='$pageUrl$params$pagePrefix".($page-1)."'>  ".$this->translator->trans('prev')." </a></li>";  
+            $pagination.= "<li> <a href='$pageUrl$params$pageQuery".($page-1)."'>  ".$this->translator->trans('prev')." </a></li>";  
         }  
         $minPage = $page - 1 == 0 ? 1 : ( $page >= 3 ? $page -2 : $page -1);
         for($i=$minPage; $i<=$totalPages; $i++){
                 if($page==$i){
-                    $pagination .= '<li class="active"><a href="'.$pageUrl.$params.$pagePrefix.'"></a>'.$page.'</li>';
+                    $pagination .= '<li class="active"><a href="'.$pageUrl.$params.$pageQuery.'"></a>'.$page.'</li>';
                 }
                 else if( $page >= 3 ? ($i<$page+3) : ($i<$page+2)){
-                    $pagination .= "<li><a href='$pageUrl$params$pagePrefix$i'>$i</a></li>";
+                    $pagination .= "<li><a href='$pageUrl$params$pageQuery$i'>$i</a></li>";
                 }
         }
         if($page<$totalPages){   
-            $pagination.= "<li><a href='$pageUrl$params$pagePrefix".($page+1)."'> ".$this->translator->trans('next')." </a></li>";   
+            $pagination.= "<li><a href='$pageUrl$params$pageQuery".($page+1)."'> ".$this->translator->trans('next')." </a></li>";   
         }  
         if($routingParams){
             if($pathName){
