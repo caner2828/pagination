@@ -4,7 +4,7 @@ Toplam sayfa sayısı, mevcut sayfa, rota parametreleri ve çeviri desteği gibi
 
 Amaç, pagination işlemini herhangi bir ek kütüphane veya eklentiye ihtiyaç duymadan kolayca kullanılabilir bir şekilde yazmak.
 
-🔧 Özellikler:
+Özellikler:
 
 Karmaşık queryler içeren sistemlere kolayca adapte edilebilme 
 
