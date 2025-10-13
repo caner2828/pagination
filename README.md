@@ -10,6 +10,6 @@ Karmaşık queryler içeren sistemlere kolayca adapte edilebilme
 
 Prod / Local ortamına göre URL yönlendirmesi
 
-İsteğe bağlı olarak routing parametreleri ve pathName desteği
+İsteğe bağlı olarak routing parametreleri
 
 
