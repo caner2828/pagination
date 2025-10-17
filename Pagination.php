@@ -33,7 +33,7 @@ class Pagination {
         if($routingParams){
             if($pathName){
                 if($_ENV['APP_ENV'] == 'prod') {
-                      $routingUrl = "https://tutayi.com".  ($pathName == 'mainPage' ? "/" :  "/{$pathName}/");
+                      $routingUrl = "https://paginationtest.com".  ($pathName == 'mainPage' ? "/" :  "/{$pathName}/");
                       $pagination = str_replace(search: '?page=',replace: $routingUrl,subject: $pagination);
                 }
                 else{
