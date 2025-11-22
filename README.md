@@ -12,5 +12,5 @@ Prod / Local ortamına göre URL yönlendirmesi
 
 İsteğe bağlı olarak routing parametreleri
 
-Translator ile çok dilli içeriklere uygun bir search parametre yapısı(Translatoru controllerdan göndermek daha mantıklı olur göstermek için pagination da translatoru kullandım)
+Translator ile çok dilli projelere uygun bir search parametre yapısı(Translatoru controllerdan göndermek daha mantıklı olur göstermek için pagination da translatoru kullandım)
 
